@@ -15,5 +15,3 @@
 # dessa maneira o codigo irá funcionar sem erros
 
 from teste.modulo_teste import soma
-
-
