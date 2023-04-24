@@ -1,3 +1,5 @@
+import os
+
 # Context manager (with) é um método que pode ser utilizado para manipulação de arquivo, ele abre o mesmo e fecha-o automaticamente
 
 # O context manager é muito utilizado para isto.
@@ -19,9 +21,10 @@
 # Abrindo um arquivo:
 # caso nao exista o arquivo no diretorio, ele sera criado
 # o nome do arquivo será "file"
-with open("exemplo_arquivo.txt", "w+") as file:
+# necessario adicionar o enconding pois o Windows utiliza outro, e para nao gerar erros isso é necessário
+with open("exemplo_arquivo.txt", "w+", encoding="utf-8") as file:
     # necessario quebrar linha (se quiser mudar a linha no arquivo)
-    file.write("linha 1\n")
+    file.write("atenção\n")
     file.write("linha 2\n")
     file.writelines(("linha 3\n", "linha 4\n"))
 
@@ -38,3 +41,8 @@ with open("exemplo_arquivo.txt", "w+") as file:
     for linha in file.readlines():
         # tirar quebra de linha com strip
         print(linha.strip())
+
+
+# os.remove ou os.unlink fazem a mesma coisa, os dois metodos servem para apagar um arquivo
+# os.remove("exemplo_arquivo.txt")
+# os.unlink("exemplo_arquivo.txt")
